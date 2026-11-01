@@ -1,4 +1,5 @@
 # Spicetify Android patches
+> **Note:** This repository is an unofficial standalone build providing an interim hotfix for Spotify 9.1.80.2221 based on upstream commits, pending an official v1.2.1 release.
 
 Spotify Android customizations for use with [Morphe](https://morphe.software/).
 This repository publishes patch source and bundles, not Spotify APKs.
@@ -8,7 +9,8 @@ This repository publishes patch source and bundles, not Spotify APKs.
 > These patches target Spotify 9.1.80.2221, ARM64. Other Spotify versions are
 > not supported.
 
-[**➕ Add Spicetify to Morphe**](https://morphe.software/add-source?github=spicetify/morphe-patches/tree/main)
+[**+ Add Spicetify to Morphe**](https://morphe.software/add-source?github=VexingVertigo/spicetify-sandbox)
+
 
 Open this link on Android with Morphe Manager installed to add the stable
 source. Releases are published from `main`.
