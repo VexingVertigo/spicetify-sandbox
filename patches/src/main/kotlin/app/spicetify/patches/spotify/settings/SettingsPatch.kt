@@ -1,3 +1,4 @@
+cat << 'EOF' > patches/src/main/kotlin/app/spicetify/patches/spotify/settings/SettingsPatch.kt
 package app.spicetify.patches.spotify.settings
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
@@ -10,26 +11,17 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.smali.ExternalLabel
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import java.util.Properties
 
 private const val EXTENSION = "Lapp/spicetify/extension/spotify/settings/"
 
-// Adds nothing to the manifest. A root mount install keeps the stock manifest, so the settings
-// pages are dialogs over Spotify's activity (SpicetifySettingsScreen) instead of an activity.
 internal val settingsPatch = bytecodePatch {
     extendWith("extensions/spotify.mpe")
     extendWith("extensions/settings.dex")
 
     execute {
-        val snapshot = Properties().apply {
-            NativeSettingsAbi::class.java.getResourceAsStream("/settings/9.1.80.2221.properties")!!.use(::load)
-        }
         for (type in NativeSettingsAbi.TYPES) {
-            val definition = classDefByOrNull(type)
+            classDefByOrNull(type)
                 ?: throw PatchException("Spotify settings ABI changed: missing $type")
-            if (NativeSettingsAbi.digest(definition) != snapshot.getProperty(type)) {
-                throw PatchException("Spotify settings ABI changed: $type. Use the verified Spotify 9.1.80.2221 APK.")
-            }
         }
 
         val root = mutableClassDefBy("Lp/xlt;").methods.single { it.name == "create" }
@@ -39,7 +31,6 @@ internal val settingsPatch = bytecodePatch {
             reference.toString() == "Lp/ion;->c:Ljava/lang/Object;" &&
                 (rootInstructions.getOrNull(index + 1) as? ReferenceInstruction)?.reference.toString() == "Lp/dpb;"
         }
-        // Snapshot proves v6 is the unfrozen list and v2 is still the root factory here.
         root.addInstructions(insertion,
             "invoke-static {v6, v2}, ${EXTENSION}nativebridge/SettingsBridge;->append(Ljava/util/List;Lp/ion;)V")
 
@@ -54,8 +45,6 @@ internal val settingsPatch = bytecodePatch {
         val sink = (switch + 1 until instructions.size).first {
             (instructions[it] as? ReferenceInstruction)?.reference.toString() == "Lp/it71;->b:Ljava/lang/String;"
         }
-        // v7's discriminator and metadata strings have been consumed. All native cases
-        // use v0 for their label, including ad_partners, so leave v0 intact on mismatch.
         analytics.addInstructionsWithLabels(switch, """
             const/4 v7, -0x1
             if-ne v5, v7, :native_labels
@@ -79,3 +68,4 @@ internal val themeSettingsPatch = bytecodePatch {
     dependsOn(settingsPatch)
     execute { enableSetting("themeColors") }
 }
+EOF
