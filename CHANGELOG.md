@@ -1,3 +1,9 @@
+## [1.0.1](https://github.com/VexingVertigo/spicetify-sandbox/compare/v1.0.0...v1.0.1) (2026-11-12)
+
+### 🐛 Bug Fixes
+
+* **settings:** move high p0 register before SettingsBridge call ([ecdbac7](https://github.com/VexingVertigo/spicetify-sandbox/commit/ecdbac7c0be4380854b2217b0e4a291b3eeaee65))
+
 ## 1.0.0 (2026-11-12)
 
 ### 🐛 Bug Fixes
