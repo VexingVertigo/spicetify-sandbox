@@ -31,10 +31,9 @@ internal val settingsPatch = bytecodePatch {
                 (rootInstructions.getOrNull(index - 2) as? ReferenceInstruction)?.reference.toString() ==
                 "Lp/f46;->i0([Ljava/lang/Object;)Ljava/util/List;"
         }
-        root.addInstructions(freezeCall,
-            """
+        root.addInstructions(freezeCall, """
             move-object/from16 v1, p0
-            invoke-static {v0, v1}, nativebridge/SettingsBridge;->append(Ljava/util/List;Lp/dns;)V
+            invoke-static {v0, v1}, ${EXTENSION}nativebridge/SettingsBridge;->append(Ljava/util/List;Lp/dns;)V
         """.trimIndent())
 
         val analytics = mutableClassDefBy("Lp/opl0;").methods.single {
