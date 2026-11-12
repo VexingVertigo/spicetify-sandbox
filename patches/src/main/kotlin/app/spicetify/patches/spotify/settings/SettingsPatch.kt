@@ -55,9 +55,12 @@ internal val settingsPatch = bytecodePatch {
         """.trimIndent(), ExternalLabel("native_labels", analytics.getInstruction(switch)),
             ExternalLabel("label_sink", analytics.getInstruction(sink)))
 
-        mutableClassDefBy("Lcom/spotify/music/SpotifyApplication;").methods.single { it.name == "onCreate" }
-            .addInstructions(0,
-                "invoke-static/range {p0 .. p0}, ${EXTENSION}PatchSettings;->initialize(Landroid/content/Context;)V")
+        var appType: String? = "Lcom/spotify/music/SpotifyApplication;"
+        while (appType != null && classDefByOrNull(appType)?.methods?.none { it.name == "onCreate" && it.parameterTypes.isEmpty() } == true) {
+            appType = classDefByOrNull(appType)?.superclass
+        }
+        mutableClassDefBy(appType ?: "Lcom/spotify/music/SpotifyApplication;").methods.single { it.name == "onCreate" && it.parameterTypes.isEmpty() }
+            .addInstructions(0, "invoke-static/range {p0 .. p0}, ${EXTENSION}PatchSettings;->initialize(Landroid/content/Context;)V")
     }
 }
 
