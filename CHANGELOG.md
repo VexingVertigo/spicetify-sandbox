@@ -1,3 +1,9 @@
+## [1.1.0](https://github.com/VexingVertigo/spicetify-sandbox/compare/v1.0.4...v1.1.0) (2026-11-12)
+
+### ✨ New Features
+
+* **ads:** support Spotify 9.2.0.26 ([d9b4e0b](https://github.com/VexingVertigo/spicetify-sandbox/commit/d9b4e0b043ad397f818457e02c3d8c22fb7b8c9b))
+
 ## [1.0.4](https://github.com/VexingVertigo/spicetify-sandbox/compare/v1.0.3...v1.0.4) (2026-11-12)
 
 ### 🐛 Bug Fixes
