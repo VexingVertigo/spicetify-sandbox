@@ -26,7 +26,7 @@ val brandAdsPatch = bytecodePatch(
 
     execute {
         val snapshot = Properties().apply {
-            NativeSettingsAbi::class.java.getResourceAsStream("/ads/9.2.0.26.properties")!!.use(::load)
+            NativeSettingsAbi::class.java.getResourceAsStream("/ads/9.1.80.2221.properties")!!.use(::load)
         }
         for (type in snapshot.stringPropertyNames()) {
             val definition = classDefByOrNull(type)
