@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-11-12T07:21:54",
-  "description": "## [1.0.1](https://github.com/VexingVertigo/spicetify-sandbox/compare/v1.0.0...v1.0.1) (2026-11-12)\n\n### 🐛 Bug Fixes\n\n* **settings:** move high p0 register before SettingsBridge call ([ecdbac7](https://github.com/VexingVertigo/spicetify-sandbox/commit/ecdbac7c0be4380854b2217b0e4a291b3eeaee65))",
-  "download_url": "https://github.com/VexingVertigo/spicetify-sandbox/releases/download/v1.0.1/patches-1.0.1.mpp",
+  "created_at": "2026-11-12T07:28:46",
+  "description": "## [1.0.2](https://github.com/VexingVertigo/spicetify-sandbox/compare/v1.0.1...v1.0.2) (2026-11-12)\n\n### 🐛 Bug Fixes\n\n* **settings:** clean Smali string formatting ([93a6b97](https://github.com/VexingVertigo/spicetify-sandbox/commit/93a6b9743ed144d608012b0dcffa267c06a4c996))",
+  "download_url": "https://github.com/VexingVertigo/spicetify-sandbox/releases/download/v1.0.2/patches-1.0.2.mpp",
   "signature_download_url": "",
-  "version": "1.0.1"
+  "version": "1.0.2"
 }
