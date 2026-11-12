@@ -47,7 +47,7 @@ Pixel 8 with a 35,000-track Jellyfin library.
 
 **🎯 Supported versions:**
 
-| 🧪&nbsp;9.1.80.2221 |
+| 🧪&nbsp;9.2.0.26 |
 | :---: |
 | Experimental Android customization patches; runtime compatibility is still being verified. |
 
