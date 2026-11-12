@@ -1,3 +1,9 @@
+## [1.0.3](https://github.com/VexingVertigo/spicetify-sandbox/compare/v1.0.2...v1.0.3) (2026-11-12)
+
+### 🐛 Bug Fixes
+
+* **settings:** use clean multiline Smali block ([58735f1](https://github.com/VexingVertigo/spicetify-sandbox/commit/58735f185687267837b45801f43fb213dcabc33d))
+
 ## [1.0.2](https://github.com/VexingVertigo/spicetify-sandbox/compare/v1.0.1...v1.0.2) (2026-11-12)
 
 ### 🐛 Bug Fixes
