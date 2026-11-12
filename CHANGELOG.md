@@ -1,3 +1,9 @@
+## [1.0.4](https://github.com/VexingVertigo/spicetify-sandbox/compare/v1.0.3...v1.0.4) (2026-11-12)
+
+### 🐛 Bug Fixes
+
+* **settings:** resolve Application.onCreate across superclass chain ([daf7aec](https://github.com/VexingVertigo/spicetify-sandbox/commit/daf7aec10dc67ada27cd78306f317002bfb6a07b))
+
 ## [1.0.3](https://github.com/VexingVertigo/spicetify-sandbox/compare/v1.0.2...v1.0.3) (2026-11-12)
 
 ### 🐛 Bug Fixes
